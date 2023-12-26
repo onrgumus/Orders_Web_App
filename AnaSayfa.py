@@ -5,7 +5,7 @@ from pathlib import Path
 
 # Streamlit sayfa yapılandırması
 st.set_page_config(
-    page_title="Sipariş Uygulaması",
+    page_title="OrderEase",
     page_icon="🍕",
     layout="wide",
     initial_sidebar_state="expanded",
