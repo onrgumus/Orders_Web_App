@@ -34,20 +34,24 @@ siparisler = c.fetchall()
 df = pd.DataFrame(siparisler)
 df.columns = ["isim_soyisim", "Adress", "pizza", "boy", "icecek", "toplam_fiyat"]
 
-# DataFrame'i Streamlit arayüzünde tablo olarak gösterme
-st.table(df)
-
-# Sipariş sayısını hesaplama
-num_orders = len(df)
-
-# Sipariş sayısını başarı mesajıyla kullanıcıya bildirme
-st.success(f"Toplam {num_orders} adet siparişiniz vardır.", icon="✅")
-
 # Adrese göre filtreleme için kullanıcı girişi
 filter_address = st.text_input("Filtrelemek istediğiniz adresi girin")
 
 # Adrese göre verileri filtreleme
 filtered_df = df[df['Adress'].str.contains(filter_address, case=False)]
 
+# # DataFrame'i Streamlit arayüzünde tablo olarak gösterme
+# st.table(df)
 # Filtrelenmiş verileri gösterme
 st.table(filtered_df)
+# Sipariş sayısını hesaplama
+num_orders = len(df)
+
+# Sipariş sayısını başarı mesajıyla kullanıcıya bildirme
+st.success(f"Toplam {num_orders} adet siparişiniz vardır.", icon="✅")
+
+
+
+
+
+
