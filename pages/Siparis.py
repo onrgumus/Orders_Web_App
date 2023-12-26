@@ -5,7 +5,7 @@ from pathlib import Path
 
 # Streamlit sayfa yapılandırması
 st.set_page_config(
-    page_title=" Sipariş Oluştur",
+    page_title="Create Orders",
     page_icon="🎯",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -28,15 +28,15 @@ isimlerlist = []
 for i in isimler:
     isimlerlist.append(i[0])
 
-st.header('Sipariş')
+st.header('Orders')
 
 with st.form("Sipariş", clear_on_submit=True):
-    isim_soyisim = st.text_input("İsim Soyisim")
-    Adress = st.text_area("Adres")
-    pizza = st.selectbox("Pizza Sec", isimlerlist)
-    boy = st.selectbox("Boy", ["Small", "Medium", "Large"])
-    icecek = st.selectbox("icecek", ["Ayran", "Soda", "Cola", " Ice Tea", "Su"])
-    siparisver = st.form_submit_button("Sipariş Ver")
+    isim_soyisim = st.text_input("Name Surname")
+    Adress = st.text_area("Adress")
+    pizza = st.selectbox("Choose Pizza", isimlerlist)
+    boy = st.selectbox("Size", ["Small", "Medium", "Large"])
+    icecek = st.selectbox("Drink", ["Ayran", "Soda", "Cola", " Ice Tea", "Su"])
+    siparisver = st.form_submit_button("Place Order")
     
     if siparisver:
         if boy == "Small":
