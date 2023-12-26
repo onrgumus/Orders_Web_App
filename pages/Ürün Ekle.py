@@ -62,7 +62,7 @@ with st.form('Pizza Ekle', clear_on_submit=True):
 #     st.write('---')
     
 # Veritabanındaki pizzaları gösterme
-st.header('Menüye Eklenen Son Pizza')
+st.header('Recently Added Pizza to Menu')
 c.execute("SELECT * FROM pizzalar ORDER BY ROWID DESC LIMIT 1")
 son_eklenen_pizza = c.fetchone()
 
