@@ -35,7 +35,7 @@ df = pd.DataFrame(siparisler)
 df.columns = ["isim_soyisim", "Adress", "pizza", "boy", "icecek", "toplam_fiyat"]
 
 # Adrese göre filtreleme için kullanıcı girişi
-filter_address = st.text_input("Filtrelemek istediğiniz adresi girin")
+filter_address = st.text_input("Enter the address you want to filter")
 
 # Adrese göre verileri filtreleme
 filtered_df = df[df['Adress'].str.contains(filter_address, case=False)]
