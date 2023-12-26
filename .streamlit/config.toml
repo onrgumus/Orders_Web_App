@@ -1,5 +1,5 @@
 [theme]
-primaryColor = "#ff6347" // Parlak kırmızı
-backgroundColor = "#ffe4e1" // Pudra pembesi
-secondaryBackgroundColor = "#f9ebae" // Açık sarı
-textColor = "#333" // Koyu gri
+primaryColor = "#ff6347" 
+backgroundColor = "#ffe4e1" 
+secondaryBackgroundColor = "#f9ebae" 
+textColor = "#333" 
