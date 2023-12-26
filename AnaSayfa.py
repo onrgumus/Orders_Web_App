@@ -13,10 +13,14 @@ st.set_page_config(
 
 # --- DOSYA YOLLARI ---
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
-css_file = current_dir / "styles"/"main.css"
+css_file = current_dir / "styles" / "main.css"
 
 # Streamlit başlık
-st.header('Anasayfa')
+st.markdown("""
+    <div style='text-align:center'>
+        <h1>HomePage</h1>
+    </div>
+""", unsafe_allow_html=True)
 
 # SQLite veritabanı bağlantısı
 conn = sqlite3.connect("pizzadb.sqlite3")
@@ -30,7 +34,7 @@ siparisler = c.fetchall()
 df = pd.DataFrame(siparisler)
 df.columns = ["isim_soyisim", "Adress", "pizza", "boy", "icecek", "toplam_fiyat"]
 
-# DataFrame'i Streamlit arayüzünde tablo olarak görüntüleme
+# DataFrame'i Streamlit arayüzünde tablo olarak gösterme
 st.table(df)
 
 # Sipariş sayısını hesaplama
@@ -38,3 +42,12 @@ num_orders = len(df)
 
 # Sipariş sayısını başarı mesajıyla kullanıcıya bildirme
 st.success(f"Toplam {num_orders} adet siparişiniz vardır.", icon="✅")
+
+# Adrese göre filtreleme için kullanıcı girişi
+filter_address = st.text_input("Filtrelemek istediğiniz adresi girin")
+
+# Adrese göre verileri filtreleme
+filtered_df = df[df['Adress'].str.contains(filter_address, case=False)]
+
+# Filtrelenmiş verileri gösterme
+st.table(filtered_df)
